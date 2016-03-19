@@ -15,7 +15,7 @@
 module scenes {
     export class Play extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _playLabel: objects.Label;
+        private _road: objects.Road;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -26,15 +26,9 @@ module scenes {
         
         // Start Method
         public start(): void {
-
-
-            //Add Play Label
-            this._playLabel = new objects.Label(
-                "PLAY SCENE","60px Consolas", 
-                "#000000", 
-                config.Screen.CENTER_X,config.Screen.CENTER_Y, true);
-            this.addChild(this._playLabel);
-
+            //add road  to scene
+            this._road = new objects.Road();
+            this.addChild(this._road);
 
             // add this scene to the global stage container
             stage.addChild(this);
@@ -42,7 +36,7 @@ module scenes {
 
         // PLAY Scene updates here
         public update(): void {
-
+            this._road.update();
         }
         
         
