@@ -66,7 +66,7 @@ module scenes {
         
         // LET'S DRIVE Button click event handler
         private _letsDriveButtonClick(event: createjs.MouseEvent) {
-            // Switch to the LEFT_CAVE Scene
+            // Switch to the PLAY Scene
             scene = config.Scene.PLAY;
             changeScene();
         }

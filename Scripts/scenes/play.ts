@@ -10,6 +10,7 @@
     Program Description: Play scene where gameplay takes action.
     Revision History: added road image
                       added battery object
+                      addedd car object
 */
 
 // PLAY SCENE
@@ -18,6 +19,7 @@ module scenes {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _road: objects.Road;
         private _battery: objects.Battery;
+        private _cars: objects.Cars;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -32,9 +34,13 @@ module scenes {
             this._road = new objects.Road();
             this.addChild(this._road);
 
-            //add island to scene
+            //add battery to scene
             this._battery = new objects.Battery();
             this.addChild(this._battery);
+            
+            // add cars to scene
+            this._cars = new objects.Cars();
+            this.addChild(this._cars);
             
             // add this scene to the global stage container
             stage.addChild(this);
@@ -44,6 +50,7 @@ module scenes {
         public update(): void {
             this._road.update();
             this._battery.update();
+            this._cars.update();
         }
         
         

@@ -49,7 +49,7 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // LET'S DRIVE Button click event handler
         Menu.prototype._letsDriveButtonClick = function (event) {
-            // Switch to the LEFT_CAVE Scene
+            // Switch to the PLAY Scene
             scene = config.Scene.PLAY;
             changeScene();
         };

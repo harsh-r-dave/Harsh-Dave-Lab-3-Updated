@@ -12,13 +12,13 @@ var objects;
         // CONSTRUCTOR ++++++++++++++++++++++++
         function Road() {
             _super.call(this, "Road");
-            this._speed.y = 5; // road speed
+            this._speed.x = 5; // road speed
             this._reset(-260);
         }
         // PUBLIC METHODS
         Road.prototype.update = function () {
-            this.x += this._speed.y; //left to right
-            //this.x -= this._speed.y;      // right to left
+            this.x += this._speed.x; //left to right
+            //this.x -= this._speed.x;      // right to left
             this._checkBounds(0); // left to right
             //this._checkBounds(-260);        // right to left
         };

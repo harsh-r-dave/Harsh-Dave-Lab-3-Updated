@@ -10,6 +10,7 @@
     Program Description: Play scene where gameplay takes action.
     Revision History: added road image
                       added battery object
+                      addedd car object
 */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -31,9 +32,12 @@ var scenes;
             //add road  to scene
             this._road = new objects.Road();
             this.addChild(this._road);
-            //add island to scene
+            //add battery to scene
             this._battery = new objects.Battery();
             this.addChild(this._battery);
+            // add cars to scene
+            this._cars = new objects.Cars();
+            this.addChild(this._cars);
             // add this scene to the global stage container
             stage.addChild(this);
         };
@@ -41,6 +45,7 @@ var scenes;
         Play.prototype.update = function () {
             this._road.update();
             this._battery.update();
+            this._cars.update();
         };
         return Play;
     })(objects.Scene);

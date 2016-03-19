@@ -1,3 +1,15 @@
+/*
+    Source File: COMP397-W2016-MailPilotDemo-master/ gameobject.ts
+    Author's name: Tom Tsiliopoulos, Professor, Centennial College
+    Modified by: Harsh Dave, Student, Centennial College
+    
+    Date First Modified: Mar 18, 2016
+    Date Last  Modified: Mar 18, 2016
+    Last Modified by: Harsh Dave, student, Centennial College
+    
+    Program Description: super class for game objects.
+    Revision History: updated variable values for scrolling
+*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -22,7 +34,7 @@ var objects;
         // PRIVATE METHODS ++++++++++++++++++++++++++++++
         GameObject.prototype._checkBounds = function (value) {
             var resetValue = 0;
-            // check if y value has met the reset criteria
+            // check if x value has met the reset criteria
             if (this.x >= value) {
                 this._reset(resetValue);
             }
@@ -34,8 +46,8 @@ var objects;
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         GameObject.prototype.update = function () {
             var boundValue = 0;
-            // scroll the ocean 5 px per frame
-            this.x += this._speed.y;
+            // scroll the road 5 px per frame
+            this.x += this._speed.x;
             this._checkBounds(boundValue);
         };
         return GameObject;

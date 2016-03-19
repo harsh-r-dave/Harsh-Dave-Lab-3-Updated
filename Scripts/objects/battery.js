@@ -12,19 +12,18 @@ var objects;
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Battery() {
             _super.call(this, "Battery");
-            this._speed.x = 5; //ocean speed
+            this._speed.x = 5; //battery speed
             this._reset(this._leftBounds);
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         Battery.prototype._checkBounds = function (value) {
+            // check if the battery met reset criteria        
             if (this.x >= value) {
                 this._reset(this._leftBounds);
             }
         };
         // reset the battery offscreen
         Battery.prototype._reset = function (value) {
-            var leftBounds;
-            var rightBounds;
             this.y = Math.floor(Math.random() * this._bottomBounds);
             this.x = value;
         };

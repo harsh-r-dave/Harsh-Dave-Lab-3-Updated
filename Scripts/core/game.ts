@@ -1,5 +1,5 @@
 ﻿/* 
-    Source File: COMP397-W2016-MailPilotDemo-master/ index.html
+    Source File: COMP397-W2016-MailPilotDemo-master/ game.ts
     Author's name: Tom Tsiliopoulos, Professor, Centennial College
     Modified by: Harsh Dave, Student, Centennial College
     
