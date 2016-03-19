@@ -10,8 +10,8 @@ var objects;
         __extends(Cars, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Cars() {
-            _super.call(this, "car");
+        function Cars(carModel) {
+            _super.call(this, carModel);
             this._reset(this._leftBounds);
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
@@ -23,7 +23,7 @@ var objects;
         };
         // reset the cloud offscreen
         Cars.prototype._reset = function (value) {
-            this._speed.x = Math.floor(Math.random() * 5) + 2;
+            this._speed.x = Math.floor(Math.random() * 5) + 5;
             this.y = Math.floor(Math.random() * this._bottomBounds);
             this.x = value;
             if (this.y > 0 && this.y <= 120) {

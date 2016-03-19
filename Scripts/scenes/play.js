@@ -29,6 +29,10 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Play.prototype.start = function () {
+            // set cars count
+            this._carsCount = 3;
+            // instatiate cars array
+            this._cars = new Array();
             //add road  to scene
             this._road = new objects.Road();
             this.addChild(this._road);
@@ -36,8 +40,18 @@ var scenes;
             this._battery = new objects.Battery();
             this.addChild(this._battery);
             // add cars to scene
-            this._cars = new objects.Cars();
-            this.addChild(this._cars);
+            for (var car = 0; car < this._carsCount; car++) {
+                if (car == 0) {
+                    this._cars[car] = new objects.Cars("Car");
+                }
+                if (car == 1) {
+                    this._cars[car] = new objects.Cars("Police");
+                }
+                if (car == 2) {
+                    this._cars[car] = new objects.Cars("Bike");
+                }
+                this.addChild(this._cars[car]);
+            }
             // add this scene to the global stage container
             stage.addChild(this);
         };
@@ -45,7 +59,9 @@ var scenes;
         Play.prototype.update = function () {
             this._road.update();
             this._battery.update();
-            this._cars.update();
+            this._cars.forEach(function (car) {
+                car.update();
+            });
         };
         return Play;
     })(objects.Scene);

@@ -4,8 +4,8 @@ module objects {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
 
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        constructor() {
-            super("car");
+        constructor(carModel: string) {
+            super(carModel);
 
             this._reset(this._leftBounds);
         }
@@ -20,10 +20,9 @@ module objects {
 
         // reset the cloud offscreen
         protected _reset(value: number): void {
-            this._speed.x = Math.floor(Math.random() * 5) + 2;
+            this._speed.x = Math.floor(Math.random() * 5) + 5;
             this.y = Math.floor(Math.random() * this._bottomBounds);
             this.x = value;
-
 
             if (this.y > 0 && this.y <= 120) {
                 this.y = 16;

@@ -32,8 +32,9 @@ var assetData = [
     { id: "GoHome", src: "../../Assets/images/GoHome.png" },
     { id: "GotIt", src: "../../Assets/images/GotIt.png" },
     { id: "Road", src: "../../Assets/images/Road.png" },
-    { id: "car", src: "../../Assets/images/car.png" },
+    { id: "Car", src: "../../Assets/images/car.png" },
     { id: "Bike", src: "../../Assets/images/Bike.png" },
+    { id: "Police", src: "../../Assets/images/Police.png" },
     { id: "Battery", src: "../../Assets/images/Battery.png" },
 ];
 function preload() {

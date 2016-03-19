@@ -37,8 +37,9 @@ var assetData: objects.Asset[] = [
     { id: "GoHome", src: "../../Assets/images/GoHome.png" },               // end scene
     { id: "GotIt", src: "../../Assets/images/GotIt.png" },                 // instruction scene
     { id: "Road", src: "../../Assets/images/Road.png" },                   // menu and game play scene
-    { id: "car", src: "../../Assets/images/car.png" },                     // play scene
+    { id: "Car", src: "../../Assets/images/car.png" },                     // play scene
     { id: "Bike", src: "../../Assets/images/Bike.png" },                   // play scene
+    { id: "Police", src: "../../Assets/images/Police.png" },                   // play scene
     { id: "Battery", src: "../../Assets/images/Battery.png" },             // play scene
 ];
 

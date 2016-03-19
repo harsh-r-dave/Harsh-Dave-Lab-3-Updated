@@ -19,17 +19,24 @@ module scenes {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _road: objects.Road;
         private _battery: objects.Battery;
-        private _cars: objects.Cars;
-        
+        private _cars: objects.Cars[];
+        private _carsCount: number;
+
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
             super();
         }
-        
+
         // PUBLIC METHODS +++++++++++++++++++++
-        
+
         // Start Method
         public start(): void {
+            // set cars count
+            this._carsCount = 3;
+
+            // instatiate cars array
+            this._cars = new Array<objects.Cars>();
+
             //add road  to scene
             this._road = new objects.Road();
             this.addChild(this._road);
@@ -37,11 +44,21 @@ module scenes {
             //add battery to scene
             this._battery = new objects.Battery();
             this.addChild(this._battery);
-            
+
             // add cars to scene
-            this._cars = new objects.Cars();
-            this.addChild(this._cars);
-            
+            for (var car: number = 0; car < this._carsCount; car++) {
+                if (car == 0) {
+                    this._cars[car] = new objects.Cars("Car");
+                }
+                if (car == 1) {
+                    this._cars[car] = new objects.Cars("Police");
+                }
+                if (car == 2) {
+                    this._cars[car] = new objects.Cars("Bike");
+                }
+                this.addChild(this._cars[car]);
+            }
+
             // add this scene to the global stage container
             stage.addChild(this);
         }
@@ -50,11 +67,14 @@ module scenes {
         public update(): void {
             this._road.update();
             this._battery.update();
-            this._cars.update();
+
+            this._cars.forEach(car => {
+                car.update();
+            })
         }
-        
-        
+
+
         //EVENT HANDLERS ++++++++++++++++++++
-        
+
     }
 }
