@@ -22,12 +22,15 @@ var scene;
 var menu;
 var play;
 var end;
+var instructions;
 var assetData = [
     // Add your Assets here
     { id: "LetsDrive", src: "../../Assets/images/LetsDrive.png" },
-    { id: "Instruction", src: "../../Assets/images/Instruction.png" },
+    { id: "Help", src: "../../Assets/images/Help.png" },
+    { id: "Instructions", src: "../../Assets/images/Instruction.png" },
     { id: "DriveAgain", src: "../../Assets/images/DriveAgain.png" },
     { id: "GoHome", src: "../../Assets/images/GoHome.png" },
+    { id: "GotIt", src: "../../Assets/images/GotIt.png" },
     { id: "Road", src: "../../Assets/images/Road.png" },
     { id: "car", src: "../../Assets/images/car.png" },
     { id: "Bike", src: "../../Assets/images/Bike.png" },
@@ -86,6 +89,13 @@ function changeScene() {
             menu = new scenes.Menu();
             currentScene = menu;
             console.log("Starting MENU Scene");
+            break;
+        case config.Scene.INSTRUCTIONS:
+            // show the INSTRUCTIONS scene
+            stage.removeAllChildren();
+            instructions = new scenes.Instructions();
+            currentScene = instructions;
+            console.log("Starting INSTRUCTIONS Scene");
             break;
         case config.Scene.PLAY:
             // show the PLAY scene

@@ -8,15 +8,16 @@
     Last Modified by: Harsh Dave, student, Centennial College
     
     Program Description: Main menu scene
-    Revision History:
+    Revision History: added image and buttons for menu scene
 */
 
 // MENU SCENE
 module scenes {
     export class Menu extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _menuLabel: objects.Label;
-        private _startButton: objects.Button;
+        private _backgroundImage: createjs.Bitmap;
+        private _letsDriveButton: objects.Button;
+        private _helpButton: objects.Button;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -27,24 +28,29 @@ module scenes {
         
         // Start Method
         public start(): void {
-            //Add Menu Label
-            this._menuLabel = new objects.Label(
-                "MENU SCENE", "60px Consolas",
-                "#000000",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._menuLabel);
+            //Add Background Image
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("Road"));
+            this.addChild(this._backgroundImage);          
             
-            
-            // add the Start button to the MENU scene
-            this._startButton = new objects.Button(
-                "StartButton",
-                config.Screen.CENTER_X,
+            // add the Let's Drive button to the MENU scene
+            this._letsDriveButton = new objects.Button(
+                "LetsDrive",
+                config.Screen.CENTER_X - 100,
                 config.Screen.CENTER_Y + 180, true);
-            this.addChild(this._startButton);
+            this.addChild(this._letsDriveButton);
             
             // Start Button event listener
-            this._startButton.on("click", this._startButtonClick, this);
+            this._letsDriveButton.on("click", this._letsDriveButtonClick, this);
             
+            // add the Help button to the MENU scene
+            this._helpButton = new objects.Button(
+                "Help",
+                config.Screen.CENTER_X + 100,
+                config.Screen.CENTER_Y + 180, true);
+            this.addChild(this._helpButton);
+            
+            // Start Button event listener
+            this._helpButton.on("click", this._helpButtonClick, this);
             
             // add this scene to the global stage container
             stage.addChild(this);
@@ -58,12 +64,18 @@ module scenes {
         
         //EVENT HANDLERS ++++++++++++++++++++
         
-        // LEFT_CAVE Button click event handler
-        private _startButtonClick(event: createjs.MouseEvent) {
+        // LET'S DRIVE Button click event handler
+        private _letsDriveButtonClick(event: createjs.MouseEvent) {
             // Switch to the LEFT_CAVE Scene
             scene = config.Scene.PLAY;
             changeScene();
         }
-
+        
+        // HELP Button click event handler
+        private _helpButtonClick(event: createjs.MouseEvent) {
+            // Switch to the INSTRUCTIONS Scene
+            scene = config.Scene.INSTRUCTIONS;
+            changeScene();
+        }
     }
 }
