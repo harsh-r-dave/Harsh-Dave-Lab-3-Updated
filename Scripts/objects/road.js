@@ -26,7 +26,7 @@ var objects;
         // reset the road to make it look continues
         Road.prototype._reset = function (value) {
             this.x = value; // left to right -260
-            //this.x = 0;       // right to left    0
+            //this.x = value;       // right to left    0
         };
         // check boundaries of road
         Road.prototype._checkBounds = function (value) {

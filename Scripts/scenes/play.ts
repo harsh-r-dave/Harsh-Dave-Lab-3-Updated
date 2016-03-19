@@ -8,7 +8,8 @@
     Last Modified by: Harsh Dave, student, Centennial College
     
     Program Description: Play scene where gameplay takes action.
-    Revision History:
+    Revision History: added road image
+                      added battery object
 */
 
 // PLAY SCENE
@@ -16,6 +17,7 @@ module scenes {
     export class Play extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _road: objects.Road;
+        private _battery: objects.Battery;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -30,6 +32,10 @@ module scenes {
             this._road = new objects.Road();
             this.addChild(this._road);
 
+            //add island to scene
+            this._battery = new objects.Battery();
+            this.addChild(this._battery);
+            
             // add this scene to the global stage container
             stage.addChild(this);
         }
@@ -37,6 +43,7 @@ module scenes {
         // PLAY Scene updates here
         public update(): void {
             this._road.update();
+            this._battery.update();
         }
         
         
