@@ -1,41 +1,41 @@
 module objects {
 	//ROAD CLASS
-	export class Road extends createjs.Bitmap {
+	export class Road extends objects.GameObject {
 		//PRIVATE INSTANCE VARIABLES
-		private _speed: number;
 		
 		// CONSTRUCTOR ++++++++++++++++++++++++
 		constructor() {
-			super(assets.getResult("Road"));
+			super("Road");
 			
-			this._speed = 5;
-			this._reset();
+			this._speed.y = 5;      // road speed
+			this._reset(-260);
 		}
 		
         
 		// PUBLIC METHODS
 		public update():void {
-			this.x += this._speed;      //left to right
-            //this.x -= this._speed;       // right to left
-			this._checkBounds();
+			this.x += this._speed.y;        //left to right
+            //this.x -= this._speed.y;      // right to left
+			this._checkBounds(0);           // left to right
+            //this._checkBounds(-260);        // right to left
 		}
 		
 		//PRIVATE METHODS
         
         // reset the road to make it look continues
-		private _reset():void {
-			this.x = -260;      // left to right
-            //this.x = 0;       // right to left
+		protected _reset(value: number):void {
+			this.x = value;      // left to right -260
+            //this.x = 0;       // right to left    0
 		}
 		
 		// check boundaries of road
-        private _checkBounds():void {
-		    if(this.x >= 0) {       // left to right
-				this._reset();
+        protected _checkBounds(value: number):void {
+		    if(this.x >= value) {       // left to right compare with 0, reset to -260
+				this._reset(-260);
 			}
-            /*if(this.x <= -260)      // right to left
+            /*if(this.x <= value)      // right to left compare with -260, reset to 0
             {
-                this._reset();
+                this._reset(0);
             }*/
 		}
 	}
