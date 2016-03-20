@@ -4,13 +4,14 @@
     Modified by: Harsh Dave, Student, Centennial College
     
     Date First Modified: Mar 18, 2016
-    Date Last  Modified: Mar 18, 2016
+    Date Last  Modified: Mar 19, 2016
     Last Modified by: Harsh Dave, student, Centennial College
     
     Program Description: Play scene where gameplay takes action.
-    Revision History: added road image
-                      added battery object
-                      addedd car object
+    Revision History: added road image - Mar 18, 2016
+                      added battery object - Mar 18, 2016
+                      added car object - Mar 18, 2016
+                      added player object - Mar 19, 2016
 */
 
 // PLAY SCENE
@@ -21,7 +22,8 @@ module scenes {
         private _battery: objects.Battery;
         private _cars: objects.Cars[];
         private _carsCount: number;
-
+        private _player: objects.Player;
+        
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
             super();
@@ -33,7 +35,6 @@ module scenes {
         public start(): void {
             // set cars count
             this._carsCount = 3;
-
             // instatiate cars array
             this._cars = new Array<objects.Cars>();
 
@@ -54,10 +55,14 @@ module scenes {
                     this._cars[car] = new objects.Cars("Police");
                 }
                 if (car == 2) {
-                    this._cars[car] = new objects.Cars("Bike");
+                    this._cars[car] = new objects.Cars("Car2");
                 }
                 this.addChild(this._cars[car]);
             }
+            
+            // add player to the scene
+            this._player = new objects.Player();
+            this.addChild(this._player);
 
             // add this scene to the global stage container
             stage.addChild(this);
@@ -70,7 +75,9 @@ module scenes {
 
             this._cars.forEach(car => {
                 car.update();
-            })
+            });
+            
+            this._player.update();
         }
 
 

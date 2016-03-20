@@ -4,13 +4,14 @@
     Modified by: Harsh Dave, Student, Centennial College
     
     Date First Modified: Mar 18, 2016
-    Date Last  Modified: Mar 18, 2016
+    Date Last  Modified: Mar 19, 2016
     Last Modified by: Harsh Dave, student, Centennial College
     
     Program Description: Play scene where gameplay takes action.
-    Revision History: added road image
-                      added battery object
-                      addedd car object
+    Revision History: added road image - Mar 18, 2016
+                      added battery object - Mar 18, 2016
+                      added car object - Mar 18, 2016
+                      added player object - Mar 19, 2016
 */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -48,10 +49,13 @@ var scenes;
                     this._cars[car] = new objects.Cars("Police");
                 }
                 if (car == 2) {
-                    this._cars[car] = new objects.Cars("Bike");
+                    this._cars[car] = new objects.Cars("Car2");
                 }
                 this.addChild(this._cars[car]);
             }
+            // add player to the scene
+            this._player = new objects.Player();
+            this.addChild(this._player);
             // add this scene to the global stage container
             stage.addChild(this);
         };
@@ -62,6 +66,7 @@ var scenes;
             this._cars.forEach(function (car) {
                 car.update();
             });
+            this._player.update();
         };
         return Play;
     })(objects.Scene);

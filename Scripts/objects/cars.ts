@@ -2,11 +2,18 @@ module objects {
     // CARS CLASS ++++++++++++++++++++++++++++++++++++
     export class Cars extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
-
+        private _laneOne: number;
+        private _laneTwo: number;
+        private _laneThree: number;
+        private _laneFour: number;
+        
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor(carModel: string) {
             super(carModel);
-
+            this._laneOne = 16;
+            this._laneTwo = 132;
+            this._laneThree = 260;
+            this._laneFour = 372;
             this._reset(this._leftBounds);
         }
 
@@ -18,23 +25,24 @@ module objects {
             }
         }
 
-        // reset the cloud offscreen
+        // reset the cars offscreen
         protected _reset(value: number): void {
             this._speed.x = Math.floor(Math.random() * 5) + 5;
             this.y = Math.floor(Math.random() * this._bottomBounds);
             this.x = value;
 
+            // keep the cars in a specific lane
             if (this.y > 0 && this.y <= 120) {
-                this.y = 16;
+                this.y = this._laneOne;
             }
             else if (this.y > 120 && this.y <= 230) {
-                this.y = 132;
+                this.y = this._laneTwo;
             }
             else if (this.y > 230 && this.y <= 360) {
-                this.y = 260;
+                this.y = this._laneThree;
             }
             else if (this.y > 360) {
-                this.y = 372;
+                this.y = this._laneFour;
             }
         }
 

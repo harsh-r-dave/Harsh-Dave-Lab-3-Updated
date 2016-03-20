@@ -4,7 +4,7 @@
     Modified by: Harsh Dave, Student, Centennial College
     
     Date First Modified: Mar 18, 2016
-    Date Last  Modified: Mar 18, 2016
+    Date Last  Modified: Mar 19, 2016
     Last Modified by: Harsh Dave, student, Centennial College
     
     Program Description: Contains assests and other required features needed during game play.
@@ -32,7 +32,13 @@ var assetData = [
     { id: "GoHome", src: "../../Assets/images/GoHome.png" },
     { id: "GotIt", src: "../../Assets/images/GotIt.png" },
     { id: "Road", src: "../../Assets/images/Road.png" },
-    { id: "Car", src: "../../Assets/images/car.png" },
+    { id: "Car", src: "../../Assets/images/Car.png" },
+    { id: "Car1", src: "../../Assets/images/Car1.png" },
+    { id: "Car2", src: "../../Assets/images/Car2.png" },
+    { id: "Car3", src: "../../Assets/images/Car3.png" },
+    { id: "Car4", src: "../../Assets/images/Car4.png" },
+    { id: "Car5", src: "../../Assets/images/Car5.png" },
+    { id: "Car6", src: "../../Assets/images/Car6.png" },
     { id: "Bike", src: "../../Assets/images/Bike.png" },
     { id: "Police", src: "../../Assets/images/Police.png" },
     { id: "Battery", src: "../../Assets/images/Battery.png" },
