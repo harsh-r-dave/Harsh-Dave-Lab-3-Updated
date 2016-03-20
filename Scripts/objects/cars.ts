@@ -30,6 +30,7 @@ module objects {
 
         // reset the cars offscreen
         protected _reset(value: number): void {
+            this.visible = true;
             this._speed.x = Math.floor(Math.random() * 5) + 6;
             this.y = Math.floor(Math.random() * this._bottomBounds);
             this.x = value;

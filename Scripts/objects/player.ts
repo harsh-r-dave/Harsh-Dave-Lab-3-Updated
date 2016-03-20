@@ -9,7 +9,7 @@ module objects {
         private _laneTwo: number;
         private _laneThree: number;
         private _laneFour: number;
-        
+
         //PUBLIC INSTANCE VARIABLES
         public width: number;
         public height: number;
@@ -49,7 +49,7 @@ module objects {
         // PUBLIC METHODS
         public update(): void {
             this.y = stage.mouseY;
-            
+
             // keep player in a specific lane
             if (this.y > 0 && this.y <= 120) {
                 this.y = this._laneOne;
@@ -63,8 +63,8 @@ module objects {
             else if (this.y > 360) {
                 this.y = this._laneFour;
             }
-            
+
             this._checkBounds();
-        }
+        }        
     }
 }

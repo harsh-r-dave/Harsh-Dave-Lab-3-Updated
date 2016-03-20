@@ -25,6 +25,7 @@ var objects;
         };
         // reset the battery offscreen
         Battery.prototype._reset = function (value) {
+            this.visible = true;
             this.y = Math.floor(Math.random() * this._bottomBounds);
             this.x = value;
         };

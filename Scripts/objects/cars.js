@@ -27,6 +27,7 @@ var objects;
         };
         // reset the cars offscreen
         Cars.prototype._reset = function (value) {
+            this.visible = true;
             this._speed.x = Math.floor(Math.random() * 5) + 6;
             this.y = Math.floor(Math.random() * this._bottomBounds);
             this.x = value;

@@ -44,11 +44,13 @@ module managers {
                 
                 // check if it's an car hit
                 if(object.name === "cars") {
+                    object.visible = false;
                     console.log("car hit!");
                 }
                 
                 // check if it's a battery hit
                 if(object.name === "battery") {
+                    object.visible = false;
                     console.log("battery hit!");
                 }
             }

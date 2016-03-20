@@ -22,6 +22,7 @@ module objects {
 
         // reset the battery offscreen
         protected _reset(value: number): void {
+            this.visible= true;
             this.y = Math.floor(Math.random() * this._bottomBounds);
             this.x = value;
         }
