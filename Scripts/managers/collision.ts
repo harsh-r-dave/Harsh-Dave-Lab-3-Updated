@@ -16,6 +16,8 @@ module managers {
     export class Collision {
         // PRIVATE INSTANCE VARIABLES
         private _player: objects.Player;
+        
+        // CONSTRUCTOR ++++++++++++++++++++++++++
         constructor(player:objects.Player) {
             this._player = player;
         }
@@ -45,12 +47,14 @@ module managers {
                 // check if it's an car hit
                 if(object.name === "cars") {
                     object.visible = false;
+                    createjs.Sound.play("Crash", 0, 0, 0, 0, 0.5, 0);
                     console.log("car hit!");
                 }
                 
                 // check if it's a battery hit
                 if(object.name === "battery") {
                     object.visible = false;
+                    createjs.Sound.play("Collect", 0, 0, 0, 0, 0.5, 0);
                     console.log("battery hit!");
                 }
             }

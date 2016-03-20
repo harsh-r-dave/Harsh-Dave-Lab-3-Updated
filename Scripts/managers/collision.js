@@ -14,6 +14,7 @@ var managers;
 (function (managers) {
     // COLLISION MANAGER CLASS
     var Collision = (function () {
+        // CONSTRUCTOR ++++++++++++++++++++++++++
         function Collision(player) {
             this._player = player;
         }
@@ -36,11 +37,13 @@ var managers;
                 // check if it's an car hit
                 if (object.name === "cars") {
                     object.visible = false;
+                    createjs.Sound.play("Crash", 0, 0, 0, 0, 0.5, 0);
                     console.log("car hit!");
                 }
                 // check if it's a battery hit
                 if (object.name === "battery") {
                     object.visible = false;
+                    createjs.Sound.play("Collect", 0, 0, 0, 0, 0.5, 0);
                     console.log("battery hit!");
                 }
             }

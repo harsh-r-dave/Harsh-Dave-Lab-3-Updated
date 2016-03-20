@@ -4,6 +4,7 @@ module objects {
         //PRIVATE INSTANCE VARIABLES
         private _topBounds: number;
         private _bottomBounds: number;
+        private _engine: createjs.AbstractSoundInstance;
 
         private _laneOne: number;
         private _laneTwo: number;
@@ -32,6 +33,8 @@ module objects {
             this._bottomBounds = config.Screen.HEIGHT - (this.height * 0.5);
 
             this.x = 555;
+            
+            this._engine = createjs.Sound.play("BikeEngine", 0, 0, 0, -1, 1, 0);
         }
 
         // PRIVATE METHODS

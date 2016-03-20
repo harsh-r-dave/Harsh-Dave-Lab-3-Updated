@@ -42,6 +42,9 @@ var assetData = [
     { id: "Bike", src: "../../Assets/images/Bike.png" },
     { id: "Police", src: "../../Assets/images/Police.png" },
     { id: "Battery", src: "../../Assets/images/Battery.png" },
+    { id: "Collect", src: "../../Assets/audio/Collect.mp3" },
+    { id: "Crash", src: "../../Assets/audio/Crash1.mp3" },
+    { id: "BikeEngine", src: "../../Assets/audio/bikeEngine.mp3" } // play scene
 ];
 function preload() {
     assets = new createjs.LoadQueue();

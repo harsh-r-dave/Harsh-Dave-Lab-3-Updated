@@ -30,23 +30,26 @@ var instructions: scenes.Instructions;
 
 var assetData: objects.Asset[] = [
     // Add your Assets here
-    { id: "LetsDrive", src: "../../Assets/images/LetsDrive.png" },         // menu scene
-    { id: "Help", src: "../../Assets/images/Help.png" },                   // menu scene
-    { id: "Instructions", src: "../../Assets/images/Instruction.png" },     // instruction scene
-    { id: "DriveAgain", src: "../../Assets/images/DriveAgain.png" },       // end scene
-    { id: "GoHome", src: "../../Assets/images/GoHome.png" },               // end scene
-    { id: "GotIt", src: "../../Assets/images/GotIt.png" },                 // instruction scene
-    { id: "Road", src: "../../Assets/images/Road.png" },                   // menu and game play scene
-    { id: "Car", src: "../../Assets/images/Car.png" },                     // play scene
-    { id: "Car1", src: "../../Assets/images/Car1.png" },                     // play scene
-    { id: "Car2", src: "../../Assets/images/Car2.png" },                     // play scene
-    { id: "Car3", src: "../../Assets/images/Car3.png" },                     // play scene
-    { id: "Car4", src: "../../Assets/images/Car4.png" },                     // play scene
-    { id: "Car5", src: "../../Assets/images/Car5.png" },                     // play scene
-    { id: "Car6", src: "../../Assets/images/Car6.png" },                     // play scene
-    { id: "Bike", src: "../../Assets/images/Bike.png" },                   // play scene
-    { id: "Police", src: "../../Assets/images/Police.png" },                   // play scene
-    { id: "Battery", src: "../../Assets/images/Battery.png" },             // play scene
+    { id: "LetsDrive", src: "../../Assets/images/LetsDrive.png"},         // menu scene
+    { id: "Help", src: "../../Assets/images/Help.png"},                   // menu scene
+    { id: "Instructions", src: "../../Assets/images/Instruction.png"},     // instruction scene
+    { id: "DriveAgain", src: "../../Assets/images/DriveAgain.png"},       // end scene
+    { id: "GoHome", src: "../../Assets/images/GoHome.png"},               // end scene
+    { id: "GotIt", src: "../../Assets/images/GotIt.png"},                 // instruction scene
+    { id: "Road", src: "../../Assets/images/Road.png"},                   // menu and game play scene
+    { id: "Car", src: "../../Assets/images/Car.png"},                     // play scene
+    { id: "Car1", src: "../../Assets/images/Car1.png"},                     // play scene
+    { id: "Car2", src: "../../Assets/images/Car2.png"},                     // play scene
+    { id: "Car3", src: "../../Assets/images/Car3.png"},                     // play scene
+    { id: "Car4", src: "../../Assets/images/Car4.png"},                     // play scene
+    { id: "Car5", src: "../../Assets/images/Car5.png"},                     // play scene
+    { id: "Car6", src: "../../Assets/images/Car6.png"},                     // play scene
+    { id: "Bike", src: "../../Assets/images/Bike.png"},                   // play scene
+    { id: "Police", src: "../../Assets/images/Police.png"},                   // play scene
+    { id: "Battery", src: "../../Assets/images/Battery.png"},             // play scene
+    { id: "Collect", src: "../../Assets/audio/Collect.mp3"},               // play scene
+    { id: "Crash", src: "../../Assets/audio/Crash1.mp3"},               // play scene
+    { id: "BikeEngine", src: "../../Assets/audio/bikeEngine.mp3"}               // play scene
 ];
 
 function preload() {
