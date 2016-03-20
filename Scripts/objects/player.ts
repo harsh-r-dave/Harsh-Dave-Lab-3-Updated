@@ -1,22 +1,35 @@
 module objects {
     // PLAYER CLASS ++++++++++++++++++++++++++++++
     export class Player extends createjs.Bitmap {
-        private _width: number;
-        private _height: number;
+        //PRIVATE INSTANCE VARIABLES
         private _topBounds: number;
         private _bottomBounds: number;
+
+        private _laneOne: number;
+        private _laneTwo: number;
+        private _laneThree: number;
+        private _laneFour: number;
+        
+        //PUBLIC INSTANCE VARIABLES
+        public width: number;
+        public height: number;
 
         constructor() {
             super(assets.getResult("Bike"));
 
-            this._width = this.getBounds().width;
-            this._height = this.getBounds().height;
+            this._laneOne = 58;
+            this._laneTwo = 174;
+            this._laneThree = 302;
+            this._laneFour = 414;
 
-            this.regX = this._width * 0.5;
-            this.regY = this._height * 0.5;
+            this.width = this.getBounds().width;
+            this.height = this.getBounds().height;
 
-            this._topBounds = this._height * 0.5;
-            this._bottomBounds = config.Screen.HEIGHT - (this._height * 0.5);
+            this.regX = this.width * 0.5;
+            this.regY = this.height * 0.5;
+
+            this._topBounds = this.height * 0.5;
+            this._bottomBounds = config.Screen.HEIGHT - (this.height * 0.5);
 
             this.x = 555;
         }
@@ -36,6 +49,21 @@ module objects {
         // PUBLIC METHODS
         public update(): void {
             this.y = stage.mouseY;
+            
+            // keep player in a specific lane
+            if (this.y > 0 && this.y <= 120) {
+                this.y = this._laneOne;
+            }
+            else if (this.y > 120 && this.y <= 230) {
+                this.y = this._laneTwo;
+            }
+            else if (this.y > 230 && this.y <= 360) {
+                this.y = this._laneThree;
+            }
+            else if (this.y > 360) {
+                this.y = this._laneFour;
+            }
+            
             this._checkBounds();
         }
     }

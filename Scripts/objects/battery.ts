@@ -9,6 +9,7 @@ module objects {
 
             this._speed.x = 5; //battery speed
             this._reset(this._leftBounds);
+            this.name = "battery";
         }
 
         // PRIVATE METHODS ++++++++++++++++++++++++++++

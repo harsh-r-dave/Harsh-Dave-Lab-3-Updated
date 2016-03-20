@@ -14,6 +14,7 @@ var objects;
             _super.call(this, "Battery");
             this._speed.x = 5; //battery speed
             this._reset(this._leftBounds);
+            this.name = "battery";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         Battery.prototype._checkBounds = function (value) {

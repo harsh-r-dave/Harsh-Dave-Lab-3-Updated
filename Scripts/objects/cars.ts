@@ -10,11 +10,14 @@ module objects {
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor(carModel: string) {
             super(carModel);
+            
             this._laneOne = 16;
             this._laneTwo = 132;
             this._laneThree = 260;
             this._laneFour = 372;
+            
             this._reset(this._leftBounds);
+            this.name = "cars";
         }
 
         // PRIVATE METHODS ++++++++++++++++++++++++++++
@@ -27,7 +30,7 @@ module objects {
 
         // reset the cars offscreen
         protected _reset(value: number): void {
-            this._speed.x = Math.floor(Math.random() * 5) + 5;
+            this._speed.x = Math.floor(Math.random() * 5) + 6;
             this.y = Math.floor(Math.random() * this._bottomBounds);
             this.x = value;
 

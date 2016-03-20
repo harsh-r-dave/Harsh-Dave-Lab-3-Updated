@@ -10,12 +10,16 @@ var objects;
         __extends(Player, _super);
         function Player() {
             _super.call(this, assets.getResult("Bike"));
-            this._width = this.getBounds().width;
-            this._height = this.getBounds().height;
-            this.regX = this._width * 0.5;
-            this.regY = this._height * 0.5;
-            this._topBounds = this._height * 0.5;
-            this._bottomBounds = config.Screen.HEIGHT - (this._height * 0.5);
+            this._laneOne = 58;
+            this._laneTwo = 174;
+            this._laneThree = 302;
+            this._laneFour = 414;
+            this.width = this.getBounds().width;
+            this.height = this.getBounds().height;
+            this.regX = this.width * 0.5;
+            this.regY = this.height * 0.5;
+            this._topBounds = this.height * 0.5;
+            this._bottomBounds = config.Screen.HEIGHT - (this.height * 0.5);
             this.x = 555;
         }
         // PRIVATE METHODS
@@ -30,6 +34,19 @@ var objects;
         // PUBLIC METHODS
         Player.prototype.update = function () {
             this.y = stage.mouseY;
+            // keep player in a specific lane
+            if (this.y > 0 && this.y <= 120) {
+                this.y = this._laneOne;
+            }
+            else if (this.y > 120 && this.y <= 230) {
+                this.y = this._laneTwo;
+            }
+            else if (this.y > 230 && this.y <= 360) {
+                this.y = this._laneThree;
+            }
+            else if (this.y > 360) {
+                this.y = this._laneFour;
+            }
             this._checkBounds();
         };
         return Player;
