@@ -4,7 +4,7 @@
     Modified by: Harsh Dave, Student, Centennial College
     
     Date First Modified: Mar 18, 2016
-    Date Last  Modified: Mar 19, 2016
+    Date Last  Modified: Mar 24, 2016
     Last Modified by: Harsh Dave, student, Centennial College
     
     Program Description: Play scene where gameplay takes action.
@@ -13,6 +13,7 @@
                       added car object - Mar 18, 2016
                       added player object - Mar 19, 2016
                       added collision manager - Mar 19,2016
+                      added scoreboard feature - Mar 24, 2016
 */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -66,10 +67,10 @@ var scenes;
             // add player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
-            // Score Label
+            // add Score Label to the scene
             this._scoreLabel = new objects.Label("Score: ", "40px Consolas", "#FFFF00", 5, 5, false);
             this.addChild(this._scoreLabel);
-            // Lives Label
+            // add Lives Label to the scene
             this._livesLabel = new objects.Label("Lives: ", "40px Consolas", "#FFFF00", 350, 5, false);
             this.addChild(this._livesLabel);
             // add collision manager to the scene
@@ -89,7 +90,13 @@ var scenes;
             });
             this._collision.check(this._battery);
             this._updateScore();
+            // check if life becomes 0
+            if (scoreboard.getLives() < 1) {
+                scene = config.Scene.END;
+                changeScene();
+            }
         };
+        // update score in the scene
         Play.prototype._updateScore = function () {
             this._scoreLabel.text = "Score: " + scoreboard.getScore();
             this._livesLabel.text = "Lives: " + scoreboard.getLives();

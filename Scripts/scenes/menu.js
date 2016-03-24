@@ -4,11 +4,12 @@
     Modified by: Harsh Dave, Student, Centennial College
     
     Date First Modified: Mar 18, 2016
-    Date Last  Modified: Mar 18, 2016
+    Date Last  Modified: Mar 24, 2016
     Last Modified by: Harsh Dave, student, Centennial College
     
     Program Description: Main menu scene
     Revision History: added image and buttons for menu scene
+                      updated background image - Mar 24, 2016
 */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -28,23 +29,24 @@ var scenes;
         // Start Method
         Menu.prototype.start = function () {
             //Add Background Image
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("Road"));
+            this._backgroundImage = new objects.Road();
             this.addChild(this._backgroundImage);
             // add the Let's Drive button to the MENU scene
             this._letsDriveButton = new objects.Button("LetsDrive", config.Screen.CENTER_X - 100, config.Screen.CENTER_Y + 180, true);
             this.addChild(this._letsDriveButton);
-            // Start Button event listener
+            // LETS_DRIVE event listener
             this._letsDriveButton.on("click", this._letsDriveButtonClick, this);
             // add the Help button to the MENU scene
             this._helpButton = new objects.Button("Help", config.Screen.CENTER_X + 100, config.Screen.CENTER_Y + 180, true);
             this.addChild(this._helpButton);
-            // Start Button event listener
+            // HELP event listener
             this._helpButton.on("click", this._helpButtonClick, this);
             // add this scene to the global stage container
             stage.addChild(this);
         };
-        // INTRO Scene updates here
+        // MENU Scene updates here
         Menu.prototype.update = function () {
+            this._backgroundImage.update();
         };
         //EVENT HANDLERS ++++++++++++++++++++
         // LET'S DRIVE Button click event handler

@@ -4,7 +4,7 @@
     Modified by: Harsh Dave, Student, Centennial College
     
     Date First Modified: Mar 18, 2016
-    Date Last  Modified: Mar 19, 2016
+    Date Last  Modified: Mar 24, 2016
     Last Modified by: Harsh Dave, student, Centennial College
     
     Program Description: Play scene where gameplay takes action.
@@ -13,6 +13,7 @@
                       added car object - Mar 18, 2016
                       added player object - Mar 19, 2016
                       added collision manager - Mar 19,2016
+                      added scoreboard feature - Mar 24, 2016
 */
 
 // PLAY SCENE
@@ -25,11 +26,11 @@ module scenes {
         private _carsCount: number;
         private _player: objects.Player;
         private _carsCollection: string[];
-        
+
         private _collision: managers.Collision;
         private _scoreLabel: objects.Label;
         private _livesLabel: objects.Label;
-        
+
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
             super();
@@ -44,10 +45,10 @@ module scenes {
             scoreboard.setScore(0);
             console.log("Score: " + scoreboard.getScore());
             console.log("Lives: " + scoreboard.getLives());
-            
+
             // instatiate cars collection
             this._carsCollection = new Array("Car", "Car1", "Car2", "Car3", "Car4", "Car5", "Car6", "Police");
-            
+
             // set cars count
             this._carsCount = 3;
             // instatiate cars array
@@ -65,7 +66,7 @@ module scenes {
             for (var car: number = 0; car < this._carsCount; car++) {
                 // get random car model
                 var randomCar = Math.floor(Math.random() * 8);
-                
+
                 if (car == 0) {
                     this._cars[car] = new objects.Cars(this._carsCollection[randomCar]);
                 }
@@ -77,19 +78,19 @@ module scenes {
                 }
                 this.addChild(this._cars[car]);
             }
-            
+
             // add player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
-            
-            // Score Label
-            this._scoreLabel = new objects.Label("Score: ", "40px Consolas","#FFFF00",5, 5,false);
+
+            // add Score Label to the scene
+            this._scoreLabel = new objects.Label("Score: ", "40px Consolas", "#FFFF00", 5, 5, false);
             this.addChild(this._scoreLabel);
-            
-            // Lives Label
-            this._livesLabel = new objects.Label("Lives: ", "40px Consolas","#FFFF00",350, 5,false);
+
+            // add Lives Label to the scene
+            this._livesLabel = new objects.Label("Lives: ", "40px Consolas", "#FFFF00", 350, 5, false);
             this.addChild(this._livesLabel);
-            
+
             // add collision manager to the scene
             this._collision = new managers.Collision(this._player);
 
@@ -107,18 +108,23 @@ module scenes {
                 car.update();
                 this._collision.check(car);
             });
-            
+
             this._collision.check(this._battery);
             this._updateScore();
+
+            // check if life becomes 0
+            if (scoreboard.getLives() < 1) {
+                scene = config.Scene.END;
+                changeScene();
+            }
         }
         
-        private _updateScore():void {
+        // update score in the scene
+        private _updateScore(): void {
             this._scoreLabel.text = "Score: " + scoreboard.getScore();
             this._livesLabel.text = "Lives: " + scoreboard.getLives();
         }
 
-
         //EVENT HANDLERS ++++++++++++++++++++
-
     }
 }
