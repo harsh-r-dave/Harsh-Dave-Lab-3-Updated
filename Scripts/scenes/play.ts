@@ -24,8 +24,11 @@ module scenes {
         private _cars: objects.Cars[];
         private _carsCount: number;
         private _player: objects.Player;
-        private _collision: managers.Collision;
         private _carsCollection: string[];
+        
+        private _collision: managers.Collision;
+        private _scoreLabel: objects.Label;
+        private _livesLabel: objects.Label;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -36,6 +39,12 @@ module scenes {
 
         // Start Method
         public start(): void {
+            // reset scoreboard
+            scoreboard.setLives(5);
+            scoreboard.setScore(0);
+            console.log("Score: " + scoreboard.getScore());
+            console.log("Lives: " + scoreboard.getLives());
+            
             // instatiate cars collection
             this._carsCollection = new Array("Car", "Car1", "Car2", "Car3", "Car4", "Car5", "Car6", "Police");
             
@@ -73,6 +82,14 @@ module scenes {
             this._player = new objects.Player();
             this.addChild(this._player);
             
+            // Score Label
+            this._scoreLabel = new objects.Label("Score: ", "40px Consolas","#FFFF00",5, 5,false);
+            this.addChild(this._scoreLabel);
+            
+            // Lives Label
+            this._livesLabel = new objects.Label("Lives: ", "40px Consolas","#FFFF00",350, 5,false);
+            this.addChild(this._livesLabel);
+            
             // add collision manager to the scene
             this._collision = new managers.Collision(this._player);
 
@@ -92,6 +109,12 @@ module scenes {
             });
             
             this._collision.check(this._battery);
+            this._updateScore();
+        }
+        
+        private _updateScore():void {
+            this._scoreLabel.text = "Score: " + scoreboard.getScore();
+            this._livesLabel.text = "Lives: " + scoreboard.getLives();
         }
 
 

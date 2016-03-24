@@ -31,6 +31,11 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Play.prototype.start = function () {
+            // reset scoreboard
+            scoreboard.setLives(5);
+            scoreboard.setScore(0);
+            console.log("Score: " + scoreboard.getScore());
+            console.log("Lives: " + scoreboard.getLives());
             // instatiate cars collection
             this._carsCollection = new Array("Car", "Car1", "Car2", "Car3", "Car4", "Car5", "Car6", "Police");
             // set cars count
@@ -61,6 +66,12 @@ var scenes;
             // add player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
+            // Score Label
+            this._scoreLabel = new objects.Label("Score: ", "40px Consolas", "#FFFF00", 5, 5, false);
+            this.addChild(this._scoreLabel);
+            // Lives Label
+            this._livesLabel = new objects.Label("Lives: ", "40px Consolas", "#FFFF00", 350, 5, false);
+            this.addChild(this._livesLabel);
             // add collision manager to the scene
             this._collision = new managers.Collision(this._player);
             // add this scene to the global stage container
@@ -77,6 +88,11 @@ var scenes;
                 _this._collision.check(car);
             });
             this._collision.check(this._battery);
+            this._updateScore();
+        };
+        Play.prototype._updateScore = function () {
+            this._scoreLabel.text = "Score: " + scoreboard.getScore();
+            this._livesLabel.text = "Lives: " + scoreboard.getLives();
         };
         return Play;
     })(objects.Scene);

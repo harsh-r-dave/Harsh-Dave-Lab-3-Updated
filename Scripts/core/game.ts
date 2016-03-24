@@ -22,6 +22,8 @@ var stats: Stats;
 var currentScene: objects.Scene;
 var scene: number;
 
+var scoreboard: managers.Scoreboard;
+
 // Game Scenes
 var menu: scenes.Menu;
 var play: scenes.Play;
@@ -78,6 +80,8 @@ function init(): void {
     // sets up our stats counting workflow
     setupStats();
 
+    // define scoreboard
+    scoreboard = new managers.Scoreboard();
     // set initial scene
     scene = config.Scene.MENU;
     changeScene();

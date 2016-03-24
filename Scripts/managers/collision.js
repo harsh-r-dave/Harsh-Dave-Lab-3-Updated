@@ -4,11 +4,12 @@
     Modified by: Harsh Dave, Student, Centennial College
     
     Date First Modified: Mar 19, 2016
-    Date Last  Modified: Mar 19, 2016
+    Date Last  Modified: Mar 24, 2016
     Last Modified by: Harsh Dave, student, Centennial College
     
     Program Description: Checks of two objects collide.
-    Revision History:
+    Revision History: sound added - Mar 20, 2016
+                      scoreboard methods called - Mar 24, 2016
 */
 var managers;
 (function (managers) {
@@ -39,12 +40,14 @@ var managers;
                     object.visible = false;
                     createjs.Sound.play("Crash", 0, 0, 0, 0, 0.5, 0);
                     console.log("car hit!");
+                    scoreboard.removeLives(1);
                 }
                 // check if it's a battery hit
                 if (object.name === "battery") {
                     object.visible = false;
                     createjs.Sound.play("Collect", 0, 0, 0, 0, 0.5, 0);
                     console.log("battery hit!");
+                    scoreboard.addScore(100);
                 }
             }
         };
