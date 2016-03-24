@@ -50,6 +50,10 @@ var objects;
             }
             this._checkBounds();
         };
+        // method to stop the engine sound
+        Player.prototype.engineOff = function () {
+            this._engine.stop();
+        };
         return Player;
     })(createjs.Bitmap);
     objects.Player = Player;

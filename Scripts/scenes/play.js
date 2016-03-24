@@ -92,6 +92,7 @@ var scenes;
             this._updateScore();
             // check if life becomes 0
             if (scoreboard.getLives() < 1) {
+                this._player.engineOff();
                 scene = config.Scene.END;
                 changeScene();
             }

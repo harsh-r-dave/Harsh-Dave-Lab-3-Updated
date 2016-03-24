@@ -69,5 +69,10 @@ module objects {
 
             this._checkBounds();
         }        
+        
+        // method to stop the engine sound
+        public engineOff(): void {
+            this._engine.stop();
+        }
     }
 }
