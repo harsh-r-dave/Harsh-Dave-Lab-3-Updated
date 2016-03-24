@@ -20,6 +20,7 @@ module objects {
         protected _rightBounds: number;
         protected _topBounds: number;
         protected _bottomBounds: number;
+        protected _isColliding: boolean;
 
         // PUBLIC INSTANCE VARIABLES
         public name: string;
@@ -27,7 +28,7 @@ module objects {
         public height: number;
         public centerX: number;
         public centerY: number;
-        
+
         // CONSTRUCTOR METHOD 
         constructor(bitmapString: string) {
             super(assets.getResult(bitmapString));
@@ -36,7 +37,7 @@ module objects {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.centerX = this.width * 0.5;
-            this.centerY = this.height *  0.5;
+            this.centerY = this.height * 0.5;
             this._topBounds = 0;
             this._bottomBounds = config.Screen.HEIGHT - this.height;
             this._leftBounds = -this.width;
@@ -57,6 +58,15 @@ module objects {
             this.x = value;
         }
 
+        // Getter Method to check collision flag of object
+        public getIsColliding(): boolean {
+            return this._isColliding;
+        }
+
+        // Setter Method to set the collision flag of the object - true or false
+        public setIsColliding(isColliding: boolean) {
+            this._isColliding = isColliding;
+        }
 
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         public update(): void {

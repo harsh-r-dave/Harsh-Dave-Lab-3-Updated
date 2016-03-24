@@ -35,20 +35,26 @@ var managers;
             /* check if the distance between the player and
               the other object is less than the minimum distance */
             if (this.distance(startPoint, endPoint) < minimumDistance) {
-                // check if it's an car hit
-                if (object.name === "cars") {
-                    object.visible = false;
-                    createjs.Sound.play("Crash", 0, 0, 0, 0, 0.5, 0);
-                    console.log("car hit!");
-                    scoreboard.removeLives(1);
+                if (object.getIsColliding() == false) {
+                    switch (object.name) {
+                        case "cars":
+                            object.visible = false;
+                            createjs.Sound.play("Crash", 0, 0, 0, 0, 0.5, 0);
+                            console.log("car hit!");
+                            scoreboard.removeLives(1);
+                            break;
+                        case "battery":
+                            object.visible = false;
+                            createjs.Sound.play("Collect", 0, 0, 0, 0, 0.5, 0);
+                            console.log("switch battery hit!");
+                            scoreboard.addScore(100);
+                            break;
+                    }
+                    object.setIsColliding(true);
                 }
-                // check if it's a battery hit
-                if (object.name === "battery") {
-                    object.visible = false;
-                    createjs.Sound.play("Collect", 0, 0, 0, 0, 0.5, 0);
-                    console.log("battery hit!");
-                    scoreboard.addScore(100);
-                }
+            }
+            else {
+                object.setIsColliding(false);
             }
         };
         return Collision;
